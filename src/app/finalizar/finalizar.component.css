@@ -1,0 +1,54 @@
+
+.inicial-title, .basico-title, .avanzado-title{
+    margin: auto;
+    font-size: 30px;
+    text-align: center;
+    color :#fe681f;
+}
+.inicial-container,.basico-container,.avanzado-container{
+    box-shadow: none;
+    border: 2px dashed #fe681f;
+    min-width: 400px;
+    
+    text-align: center;
+
+    
+}
+.inicial,.basico,.avanzado{
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    padding: 50px 50px 20px 50px;
+    filter: invert(50%) sepia(26%) saturate(4121%) hue-rotate(346deg) brightness(101%) contrast(103%);
+}
+
+.icon-pdf{
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+button{
+    width: 100%;
+}
+.button-container{
+    display: block ruby;
+    flex-flow: row wrap;
+    width: 100%;
+    text-align: center;
+}
+.mat-radio-button ~ .mat-radio-button {
+    margin: 16px;
+    margin-left: 25px;
+  }
+
+.label{
+    font-size: 18px;
+    margin-top: 10px;
+    
+}
+
+
+
+
+
+
