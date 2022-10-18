@@ -1,12 +1,12 @@
 <div class="button-container">
 
-    <div *ngIf="verificacion1==undefined" style="display: inline-block;">
+    <div *ngIf="verificacion==undefined" style="display: inline-block;">
         <mat-card class="inicial-container">
 
             <form style="display: grid;">
                 <mat-form-field appearance="outline">
-                    <mat-label>Grupo</mat-label>
-                    <input matNativeControl required type="text" matInput [(ngModel)]="grupo" name="grupo" placeholder="Nombre del grupo">
+                    <mat-label>Equipo</mat-label>
+                    <input matNativeControl required type="text" matInput [(ngModel)]="grupo" name="grupo" placeholder="Nombre del equipo">
                 </mat-form-field>
                 <mat-form-field appearance="outline">
                     <mat-label>Catgoria</mat-label>
@@ -26,32 +26,13 @@
 
 
 
-    <div *ngIf="verificacion2 == true" style="display: inline-block;">
-        <mat-card class="inicial-container" >
-            <div style="text-align: center;margin: 25px;height: 250px; display: grid;">
-                <div style=" margin-top: auto;margin-bottom: auto;">
-                    <a [href]="pdf2" target="_blank">
-                        <img src="./assets/icons/txt.png" class="icon-pdf">
-                    </a>
-                    <mat-card-subtitle>
-                        Descarga el siguiente archivo.<br>
-                        En esta etapa deberán analizar y corregir <b>“errores”</b> o <b>“alteraciones”</b><br> 
-                        del código entregado para un óptimo funcionamiento.
-                    </mat-card-subtitle>
-                </div>
-            </div>
-        </mat-card>
-    </div>
-
-    <div *ngIf="verificacion1==false || verificacion2==false" style="display: inline-block;">
+    <div *ngIf="verificacion==true || verificacion==false" style="display: inline-block;">
         <mat-card class="inicial-container" >
             <div style="text-align: center; margin: 25px;">
-                <mat-label class="label">Chan, respuesta incorrecta volvé a intentar, la página se recargará en 10 seg.</mat-label><br>
+                <mat-label class="label">Felicitaciones!!! </mat-label><br>
                 
-                <img [src]="error_gif" width="450" style="margin: 25px;">
+                <img [src]="susses_gif" width="450" style="margin: 25px;">
             </div>
         </mat-card>
-        
     </div>
-
 </div>

@@ -10,10 +10,12 @@
 
 
 
-      <div>
-        <app-finalizar ></app-finalizar>
+      <div *ngIf="dash!='true'">
+        <app-finalizar></app-finalizar>
       </div>
-
+      <div *ngIf="dash=='true'">
+        <app-finalizar></app-finalizar>
+      </div>
 
   </mat-card-content>
 

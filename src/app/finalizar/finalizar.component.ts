@@ -8,26 +8,15 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './finalizar.component.html',
   styleUrls: ['./finalizar.component.css']
 })
-export class InicialComponent implements OnInit {
+export class FinalizarComponent implements OnInit {
 
   //Actualizar estas variables
-  passwordVerdadero:string[]=environment.primero_password
-  pdf1=environment.primero_pdf1
-  pdf2=environment.primero_pdf2
-  error_gif=environment.errors_gif[Math.floor(Math.random() * 10)]
+
+  susses_gif=environment.susses_gif[Math.floor(Math.random() * 10)]
   grupo?:string
   categoria?:string
 
-
-  pregunta1?:string
-  pregunta2?:string
-  pregunta3?:string
-  pregunta4?:string
-  pregunta5?:string
-  pregunta6?:string
-
-  verificacion1?:boolean=undefined;
-  verificacion2?:boolean=undefined;
+  verificacion?:boolean=undefined;
   constructor(    
     private renderer2: Renderer2,
     private elementRef: ElementRef,
@@ -65,35 +54,23 @@ export class InicialComponent implements OnInit {
 
   verificar1(){
     var body = {'grupo':this.grupo,'categoria':this.categoria,'fecha':new Date().toJSON()}
-    this.http.post('https://hackaton-end.vercel.app/save',body).subscribe(ok =>{
+    this.http.post<any>('https://hackaton-end.vercel.app/save',body).subscribe(ok =>{
+      console.log(ok);
+      
       if(ok=='Insertados 1 registro'){
-        this.verificacion1 = true;
+        this.verificacion = true;
         this.surprise();
       }else{
-        this.verificacion1 = false;  
+        this.verificacion = false;  
       }
     },error=>{
-      this.verificacion1 = false;
+      if(error.error.text=='Insertados 1 registro'){
+        this.verificacion = true;
+        this.surprise();
+      }else{
+        this.verificacion = false;  
+      }
     });
     
   }
-  verificar2(){
-    if(this.pregunta1=='F'
-      && this.pregunta2=='F'
-      && this.pregunta3=='V'
-      && this.pregunta4=='F'
-      && this.pregunta5=='V'
-      && this.pregunta6=='V'
-    ){
-      this.verificacion2=true
-      this.surprise();
-    }else{
-      this.verificacion2=false
-      new Promise( resolve => setTimeout(()=>{window.location.reload();}, 10000) )
-    }
-  }
-
-
-
-
 }

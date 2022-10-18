@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -7,12 +8,18 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
-  paso:string='0';
-  carrera:string="";
-  dificultad:string="";
+  dash?:any
 
-
-  constructor(){
+  constructor(private route: ActivatedRoute){
+    this.dash = this.route.snapshot.queryParamMap.get('dash');
+    
+    
+    this.route.queryParams
+      .subscribe(params => {
+        if(params["dash"]){
+            this.dash='true'
+        }
+      }
+    );
   }
 }

@@ -52,12 +52,14 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
 import {CdkStepperModule} from '@angular/cdk/stepper';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
-import { InicialComponent } from './finalizar/finalizar.component';
+import { FinalizarComponent } from './finalizar/finalizar.component';
+
+import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InicialComponent
+    FinalizarComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +67,6 @@ import { InicialComponent } from './finalizar/finalizar.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-
     A11yModule,
     CdkAccordionModule,
     ClipboardModule,
@@ -113,7 +114,10 @@ import { InicialComponent } from './finalizar/finalizar.component';
     OverlayModule,
     PortalModule,
     ScrollingModule,
-    MatDialogModule
+    MatDialogModule,
+
+
+    RouterModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
